@@ -22,7 +22,6 @@ server.setConfig((app) => {
         extended: true
     }));
     app.use(bodyParser.json());
-
     app.use(express.static(path.join(__dirname, '../../client/dist/client')));
 });
 

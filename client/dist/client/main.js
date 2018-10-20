@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".game-field {\r\n    margin:0px;\r\n    padding: 0px;\r\n    background: url('bg.jpg');\r\n    height: 100vh;\r\n    width:100%;\r\n    overflow: hidden;\r\n}\r\n\r\n.shadow {\r\n    background-color: rgba(3, 3, 3, 0.7);\r\n    min-height: 100vh;\r\n    min-width: 100vw;\r\n}\r\n\r\n.container {\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.user1-field {\r\n    border: 1px solid red;\r\n    height: 180px;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.battle-field {\r\n    border: 1px solid yellow;\r\n    height: 290px;\r\n    display: flex;\r\n    font-display: row;\r\n}\r\n\r\n.myActiveCard {\r\n    border: 1px solid red;\r\n    width: 50%;\r\n    display: flex;\r\n    font-display: row;\r\n}\r\n\r\n.enemyActiveCard {\r\n    border: 1px solid blue;\r\n    width: 50%;\r\n    display: flex;\r\n    font-display: row;\r\n}\r\n\r\n.user2-field {\r\n    border: 1px solid green;\r\n    height: 180px;\r\n    display: flex;\r\n    font-display: row;\r\n}\r\n\r\n.cdk-drag-preview {\r\n    box-sizing: border-box;\r\n    border-radius: 4px;\r\n    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n                0 8px 10px 1px rgba(0, 0, 0, 0.14),\r\n                0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n  }\r\n\r\n.cdk-drag-placeholder {\r\n    opacity: 0;\r\n  }\r\n\r\n.cdk-drag-animating {\r\n    transition: -webkit-transform 150ms cubic-bezier(0, 0, 0.2, 1);\r\n    transition: transform 150ms cubic-bezier(0, 0, 0.2, 1);\r\n    transition: transform 150ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.2, 1);\r\n  }\r\n\r\n.example-box:last-child {\r\n    border: none;\r\n  }\r\n\r\n.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {\r\n    transition: -webkit-transform 10ms cubic-bezier(0, 0, 0.2, 1);\r\n    transition: transform 10ms cubic-bezier(0, 0, 0.2, 1);\r\n    transition: transform 10ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 10ms cubic-bezier(0, 0, 0.2, 1);\r\n  }\r\n  "
+module.exports = ".game-field {\r\n    margin:0px;\r\n    padding: 0px;\r\n    background: url('bg.jpg');\r\n    height: 100vh;\r\n    width:100%;\r\n    overflow: hidden;\r\n    display: flex;\r\n}\r\n\r\n.shadow {\r\n    background-color: rgba(3, 3, 3, 0.7);\r\n    min-height: 100vh;\r\n    min-width: 100vw;\r\n}\r\n\r\n.container {\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.user1-field {\r\n    border: 1px solid red;\r\n    height: 180px;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.battle-field {\r\n    border: 1px solid yellow;\r\n    height: 290px;\r\n    display: flex;\r\n    font-display: row;\r\n}\r\n\r\n.enemyCard {\r\n    background-color: #fff !important;\r\n}\r\n\r\n.myActiveCard {\r\n    border: 1px solid red;\r\n    width: 50%;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.enemyActiveCard {\r\n    border: 1px solid blue;\r\n    width: 50%;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.user2-field {\r\n    border: 1px solid green;\r\n    height: 180px;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n  "
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ".game-field {\r\n    margin:0px;\r\n    padding: 0px;\r\n    b
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"game-field\"\r\n     *ngIf=\"status == Status.GameField\">\r\n    <div class=\"shadow\">\r\n        <div class=\"container\">\r\n            <div class=\"user1-field\">\r\n\r\n            </div>\r\n\r\n            <div class=\"battle-field\">\r\n                <div cdkDropList\r\n                     #myActiveCardField=\"cdkDropList\"\r\n                     [cdkDropListData]=\"myActiveCard\"\r\n                     [cdkDropListConnectedTo]=\"[myCardRef]\"\r\n                     class=\"myActiveCard\"\r\n                     (cdkDropListDropped)=\"drop($event)\">\r\n                    <app-card *ngFor=\"let person of myActiveCard\"\r\n                              [person]=\"person\"\r\n                              cdkDrag></app-card>\r\n                </div>\r\n\r\n                <div class=\"enemyActiveCard\">\r\n                    <app-card *ngFor=\"let person of enemyActiveCard\"\r\n                              [person]=\"person\"\r\n                              cdkDrag></app-card>\r\n                </div>\r\n            </div>\r\n\r\n            <div cdkDropList\r\n                 #myCardRef=\"cdkDropList\"\r\n                 [cdkDropListData]=\"myCard\"\r\n                 [cdkDropListConnectedTo]=\"[myActiveCardField]\"\r\n                 class=\"user2-field\"\r\n                 (cdkDropListDropped)=\"drop($event)\">\r\n                <app-card *ngFor=\"let person of myCard\"\r\n                          [person]=\"person\"\r\n                          cdkDrag></app-card>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<app-signin *ngIf=\"status == Status.Auth\"></app-signin>"
+module.exports = "<div class=\"game-field\"\r\n     *ngIf=\"status == Status.GameField\">\r\n    <div class=\"shadow\">\r\n        <div class=\"container\">\r\n            <div class=\"user1-field\">\r\n                <app-card *ngFor=\"let person of enemyCard\" [isShowCard]=\"false\"\r\n                [person]=\"person\"\r\n                ></app-card>\r\n            </div>\r\n\r\n            <div class=\"battle-field\">\r\n                <div cdkDropList\r\n                     #myActiveCardField=\"cdkDropList\"\r\n                     [cdkDropListData]=\"myActiveCard\"\r\n                     [cdkDropListConnectedTo]=\"[myCardRef]\"\r\n                     class=\"myActiveCard\"\r\n                     (cdkDropListDropped)=\"drop($event)\">\r\n                    <app-card *ngFor=\"let person of myActiveCard\"\r\n                              [person]=\"person\" [isShowCard]=\"true\" \r\n                              (click)=\"onCardSelect({type: 'my', person: person})\"\r\n                              cdkDrag></app-card>\r\n                </div>\r\n\r\n                <div class=\"enemyActiveCard\">\r\n                    <app-card *ngFor=\"let person of enemyActiveCard\"\r\n                              [person]=\"person\" [isShowCard]=\"true\"\r\n                              (click)=\"onCardSelect({type: 'enemy', person: person})\"\r\n                              cdkDrag></app-card>\r\n                </div>\r\n            </div>\r\n\r\n            <div cdkDropList\r\n                 #myCardRef=\"cdkDropList\"\r\n                 [cdkDropListData]=\"myCard\"\r\n                 [cdkDropListConnectedTo]=\"[myActiveCardField]\"\r\n                 class=\"user2-field\"\r\n                 (cdkDropListDropped)=\"drop($event)\">\r\n                <app-card *ngFor=\"let person of myCard\"\r\n                          [person]=\"person\" [isShowCard]=\"true\"\r\n                          cdkDrag></app-card>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<app-signin *ngIf=\"status == Status.Auth\"></app-signin>"
 
 /***/ }),
 
@@ -108,9 +108,69 @@ var AppComponent = /** @class */ (function () {
             },
         ];
         this.myActiveCard = [];
-        this.enemyActiveCard = [];
+        this.enemyActiveCard = [
+            {
+                firstName: 'Valiantsin4',
+                lastName: 'Tsikhanau',
+                picture: 'https://static.cdn.epam.com/avatar/60655420492f5fca5a2f840c132d7e82.jpg',
+                jobPosition: '...',
+                skil1: 'Skil1',
+                skil2: 'Skil2',
+                skil3: 'Skil3',
+            },
+            {
+                firstName: 'Valiantsi5',
+                lastName: 'Tsikhanau',
+                picture: 'https://static.cdn.epam.com/avatar/60655420492f5fca5a2f840c132d7e82.jpg',
+                jobPosition: '...',
+                skil1: 'Skil1',
+                skil2: 'Skil2',
+                skil3: 'Skil3',
+            },
+            {
+                firstName: 'Valiantsin6',
+                lastName: 'Tsikhanau',
+                picture: 'https://static.cdn.epam.com/avatar/60655420492f5fca5a2f840c132d7e82.jpg',
+                jobPosition: '...',
+                skil1: 'Skil1',
+                skil2: 'Skil2',
+                skil3: 'Skil3',
+            },
+        ];
+        this.enemyCard = [{
+                firstName: 'Valiantsin1',
+                lastName: 'Tsikhanau',
+                picture: 'https://static.cdn.epam.com/avatar/60655420492f5fca5a2f840c132d7e82.jpg',
+                jobPosition: '...',
+                skil1: 'Skil1',
+                skil2: 'Skil2',
+                skil3: 'Skil3',
+            },
+            {
+                firstName: 'Valiantsin2',
+                lastName: 'Tsikhanau',
+                picture: 'https://static.cdn.epam.com/avatar/60655420492f5fca5a2f840c132d7e82.jpg',
+                jobPosition: '...',
+                skil1: 'Skil1',
+                skil2: 'Skil2',
+                skil3: 'Skil3',
+            },
+            {
+                firstName: 'Valiantsin3',
+                lastName: 'Tsikhanau',
+                picture: 'https://static.cdn.epam.com/avatar/60655420492f5fca5a2f840c132d7e82.jpg',
+                jobPosition: '...',
+                skil1: 'Skil1',
+                skil2: 'Skil2',
+                skil3: 'Skil3',
+            },
+        ];
         this.Status = Status;
         this.status = Status.GameField;
+        this.attackStateArray = {
+            me: null,
+            enemy: null
+        };
         this.socket = this.socketService.getSocket();
     }
     AppComponent.prototype.drop = function (event) {
@@ -119,10 +179,23 @@ var AppComponent = /** @class */ (function () {
         }
         else {
             Object(_angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__["transferArrayItem"])(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
-            // this.socket.emit('onStep', {
-            //     id: 1,
-            //     cards: this.myActiveCard
-            // });
+            this.socket.emit('onStep', [
+                { id: 1, cards: this.myCard },
+                { id: 2, cards: this.myActiveCard },
+                { id: 3, cards: this.enemyActiveCard },
+                { id: 4, cards: this.enemyCard },
+            ]);
+        }
+    };
+    AppComponent.prototype.onCardSelect = function (data) {
+        if (data.type === 'my') {
+            this.attackStateArray.me = data.person;
+        }
+        else {
+            this.attackStateArray.enemy = data.person;
+        }
+        if (this.attackStateArray.enemy && this.attackStateArray.me) {
+            console.log("FIGHT");
         }
     };
     AppComponent = __decorate([
@@ -234,7 +307,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".card {\r\n    box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);\r\n    width:100px;\r\n    height: 150px;\r\n    background-color: #fff;\r\n    margin-left: 20px;\r\n    -webkit-transform:translate(0, 50px);\r\n            transform:translate(0, 50px) \r\n}\r\n\r\n/* .card:hover {\r\n    transform:translate(0, 0) \r\n} */\r\n\r\n.person-block {\r\n    padding-top: 10px;\r\n}\r\n\r\n.image-block {\r\n    border: 2px solid #00DEDF;\r\n    width: 30px;\r\n    height: 30px;\r\n    margin: 0 auto;\r\n    display: flex;\r\n    align-items: center;\r\n    border-radius: 50%;\r\n}\r\n\r\n.image {\r\n    width: 26px;\r\n    height: 26px;\r\n    border-radius: 50%;\r\n    margin: 0 auto;\r\n}\r\n\r\n.name-block {\r\n    text-align: center;\r\n}\r\n\r\n.first-name {\r\n    font-weight: bold;\r\n}\r\n\r\n.job-position {\r\n    text-align: center;\r\n    margin-top: 5px;\r\n}\r\n\r\n.skills-block {\r\n    \r\n}\r\n\r\n.skill-list {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    list-style: none;\r\n}\r\n\r\n.skil-item{\r\n    color: #fff;\r\n    padding-left: 5px;\r\n    padding-top: 2px;\r\n    background-color:  #00DEDF;\r\n}\r\n\r\n.skil-item:nth-child(2){\r\n    color: #fff;\r\n    padding-left: 5px;\r\n    padding-top: 2px;\r\n    background-color:  #01CDCC;\r\n}\r\n\r\n\r\n\r\n\r\n"
+module.exports = ".card {\r\n    box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);\r\n    width:100px;\r\n    height: 150px;\r\n    background-color: #fff;\r\n    margin-left: 20px;\r\n}\r\n\r\n/* .card:hover {\r\n    transform:translate(0, 0) \r\n} */\r\n\r\n.person-block {\r\n    padding-top: 10px;\r\n}\r\n\r\n.image-block {\r\n    border: 2px solid #00DEDF;\r\n    width: 30px;\r\n    height: 30px;\r\n    margin: 0 auto;\r\n    display: flex;\r\n    align-items: center;\r\n    border-radius: 50%;\r\n}\r\n\r\n.image {\r\n    width: 26px;\r\n    height: 26px;\r\n    border-radius: 50%;\r\n    margin: 0 auto;\r\n}\r\n\r\n.name-block {\r\n    text-align: center;\r\n}\r\n\r\n.first-name {\r\n    font-weight: bold;\r\n}\r\n\r\n.job-position {\r\n    text-align: center;\r\n    margin-top: 5px;\r\n}\r\n\r\n.skills-block {\r\n    \r\n}\r\n\r\n.skill-list {\r\n    margin: 0px;\r\n    padding: 0px;\r\n    list-style: none;\r\n}\r\n\r\n.skil-item{\r\n    color: #fff;\r\n    padding-left: 5px;\r\n    padding-top: 2px;\r\n    background-color:  #00DEDF;\r\n}\r\n\r\n.skil-item:nth-child(2){\r\n    color: #fff;\r\n    padding-left: 5px;\r\n    padding-top: 2px;\r\n    background-color:  #01CDCC;\r\n}\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -245,7 +318,7 @@ module.exports = ".card {\r\n    box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\r\n  <div class=\"person-block\">\r\n    <div class=\"image-block\">\r\n      <img class=\"image\" src={{person.picture}}>\r\n    </div>\r\n\r\n    <div class=\"name-block\">\r\n      <div class=\"first-name\">{{person.firstName}}</div>\r\n      <div class=\"last-name\">{{person.lastName}}</div>\r\n    </div>\r\n\r\n    <div class=\"job-position\">\r\n      {{person.jobPosition}}\r\n    </div>\r\n  </div>\r\n  <div class=\"skills-block\">\r\n    <ul class=\"skill-list\">\r\n      <li class=\"skil-item\">{{person.skil1}}</li>\r\n      <li class=\"skil-item\">{{person.skil2}}</li>\r\n      <li class=\"skil-item\">{{person.skil3}}</li>\r\n    </ul>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"card\">\r\n    <div *ngIf=\"isShowCard\">\r\n        <div class=\"person-block\">\r\n            <div class=\"image-block\">\r\n                <img class=\"image\"\r\n                     src={{person.picture}}>\r\n            </div>\r\n\r\n            <div class=\"name-block\">\r\n                <div class=\"first-name\">{{person.firstName}}</div>\r\n                <div class=\"last-name\">{{person.lastName}}</div>\r\n            </div>\r\n\r\n            <div class=\"job-position\">\r\n                {{person.jobPosition}}\r\n            </div>\r\n        </div>\r\n        <div class=\"skills-block\">\r\n            <ul class=\"skill-list\">\r\n                <li class=\"skil-item\">{{person.skil1}}</li>\r\n                <li class=\"skil-item\">{{person.skil2}}</li>\r\n                <li class=\"skil-item\">{{person.skil3}}</li>\r\n            </ul>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -272,6 +345,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var CardComponent = /** @class */ (function () {
     function CardComponent() {
+        this.isShowCard = true;
     }
     CardComponent.prototype.ngOnInit = function () {
     };
@@ -279,6 +353,10 @@ var CardComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], CardComponent.prototype, "person", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], CardComponent.prototype, "isShowCard", void 0);
     CardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-card',

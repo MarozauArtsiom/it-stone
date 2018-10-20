@@ -250,7 +250,7 @@ var SigninComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "baseUrl", function() { return baseUrl; });
-var baseUrl = 'https://it-stone.herokuapp.com/';
+var baseUrl = 'https://it-stone.herokuapp.com';
 
 
 /***/ }),

@@ -10,6 +10,13 @@ import {
 
 import { SigninComponent } from './signin';
 import { AppComponent } from './app.component';
+import { CardComponent } from './card/card.component';
+import { TimerService } from './services/timer.service';
+import { SocketService } from './services/socket.service';
+
+import {DemoMaterialModule} from './material-module';
+import {MatNativeDateModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -27,19 +34,24 @@ export function getAuthServiceConfigs() {
 @NgModule({
   declarations: [
     AppComponent,
-    SigninComponent
+    SigninComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     SocialLoginModule,
     HttpClientModule,
+    DemoMaterialModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
     },
-
+    TimerService,
+    SocketService
   ],
   bootstrap: [AppComponent]
 })

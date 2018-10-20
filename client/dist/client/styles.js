@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\r\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\r\nbody {\r\n    margin: 0px;\r\n    padding: 0px;\r\n}"
 
 /***/ }),
 
@@ -532,7 +532,7 @@ if(false) {}
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./src/styles.css ***!
   \******************************/
@@ -544,5 +544,5 @@ module.exports = __webpack_require__(/*! C:\Work\Projects\it-stone\client\src\st
 
 /***/ })
 
-},[[2,"runtime"]]]);
+},[[3,"runtime"]]]);
 //# sourceMappingURL=styles.js.map
